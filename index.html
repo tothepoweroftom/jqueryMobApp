@@ -1,0 +1,293 @@
+<!doctype html>
+<html>
+<head>
+    <title>My Page</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="libraries/MobgenTheme.min.css" />
+  <link rel="stylesheet" href="libraries/jquery.mobile.icons.min.css" />
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile.structure-1.4.5.min.css" />
+    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+    <script src="libraries/jquery.knob.min.js"></script>
+    <script src="libraries/nexusUI.js"></script>
+    <script src="libraries/p5.js"></script>
+    <script src="libraries/p5.dom.js"></script>
+
+
+      <meta name="apple-mobile-web-app-capable" content="yes" />
+      <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+
+      <script>
+        window.addEventListener("scroll", preventMotion, false);
+        window.addEventListener("touchmove", preventMotion, false);
+
+        function preventMotion(event) {
+          window.scrollTo(0, 0);
+          event.preventDefault();
+          event.stopPropagation();
+        }
+      </script>
+
+<style>
+
+body { font-family: Futura, san-serif; }
+#text-1 { font-family: Futura, san-serif; text-align:  center;}
+
+#controls {
+position: absolute;
+margin: 0% 5%;
+
+}
+
+#position {
+position: absolute;
+margin: 0% 5%;
+border-style: solid;
+border-width: 0.3px;
+}
+
+#refresh {
+
+  position: absolute;
+  right: 20px;
+  bottom: 50px;
+
+
+}
+
+#switch {
+
+  position: absolute;
+  left: 20px;
+  bottom: 50px;
+
+}
+
+#vertical {
+    -webkit-transform: rotate(90deg);
+    -moz-transform: rotate(90deg);
+    -o-transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+    transform: rotate(90deg);
+}
+
+#verticalslider {
+  position: absolute;
+  top: 50%;
+  width: 90%;
+
+}
+
+/*[data-role=width]{width: 50% !important; position:relative !important;}*/
+
+[data-role=page]{height: 100% !important; position:relative !important;}
+[data-role=footer]{bottom:0; position:absolute !important; top: auto !important; width:100%;}
+
+.dial{
+
+width: 100px !important;
+}
+
+.ui-icon-circle:after {
+	background-image: url("./assets/icons/home.svg");
+
+}
+.ui-icon-twitter:after {
+	background-image: url("./assets/icons/twitter.svg");
+}
+.ui-icon-graph:after {
+	background-image: url("./assets/icons/graph.svg");
+}
+.ui-icon-hashtag:after {
+	background-image: url("./assets/icons/hashtag.svg");
+}
+</style>
+</head>
+<body>
+  <!--**************************************************** PAGE 1 **********************************************************-->
+
+    <div data-role="page" id="page1" data-theme="b">
+
+
+
+         <div role="main" class="ui-content" data-theme="b">
+          <input type="text" name="text-1" id="text-1" value="" data-theme="b" placeholder="Keyword">
+          <!-- /content -->
+
+          <div id="controls">
+          <!-- Position Controls  -->
+          <input type="text" value="75" class="dial" data-bgColor="white" data-cursor=true data-thickness=.05 data-fgColor="#222222" data-left="100">
+          <script>
+              $(function() {
+
+
+                  $(".dial").knob({
+                    'height': 300,
+                    'width' : 300,
+                    'change' : function (v) { console.log(v) }
+
+
+                  });
+                  // $(".dial").css("background-color": "#ffe");
+
+              });
+          </script>
+
+          <div id="position">
+          <canvas nx="position" height="200" width="300"></canvas>
+            <script>
+              nx.onload = function() {
+
+                nx.colorize("#ffffff");
+                nx.colorize("fill", "#000000");
+                nx.colorize("border", "#ffffff");
+              }
+            </script>
+          </div> <!-- /position -->
+        </div>  <!-- /grid-a -->
+
+
+
+          <div id="switch">
+            <select name="flip-2" id="flip-2" data-role="flipswitch" data-theme = "b">
+              <option value="off"></option>
+              <option value="on"></option>
+            </select>
+          </div>
+
+          <div data-role="ui-content" id="refresh">
+          <button class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-back ui-btn-icon-notext"></button>
+        </div>
+
+
+
+<!--
+        <div id="refresh">
+        <button class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-back ui-btn-icon-notext"></button>
+        </div> -->
+      </div>
+
+
+
+              <div data-role = "footer" style = "overflow:hidder">
+                <div data-role="navbar">
+                  <ul>
+                    <li><a href ="#page1" class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-circle">Vis </a></li>
+                    <li><a href ="#page2" class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-twitter">Tweets</a></li>
+                    <li><a href = "#page3" class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-hashtag"> #</a></li>
+                    <li><a href = "#page4" class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-graph"> Graph</a></li>
+
+                  </ul>
+                </div>
+              </div>
+
+      </div><!-- /page -->
+
+
+<!--**************************************************   PAGE 2     ************************************************************-->
+      <div data-role="page" id="page2" data-theme="b">
+
+          <!-- <div data-role="header" data-theme="b">
+              <h1>Data Evolution</h1>
+              <a href="#" class="ui-btn ui-icon-delete ui-btn-icon-notext ui-corner-all" data-theme="b">No text</a>
+
+          </div> -->
+          <input type="text" name="text-1" id="text-1" value="" data-theme="b" placeholder="Keyword">
+
+          <div role="main" class="ui-content" data-theme="b">
+            <div id="verticalslider"
+            <form>
+                <input type="range" name="slider-1" id="vertical" min="0" max="10" step="0.1" value="5">
+                <!-- <canvas nx="slider" height="350" width="20"></canvas> -->
+
+            </form>
+          </div>
+
+
+          </div><!-- /content -->
+
+                <div data-role = "footer" style = "overflow:hidder">
+                  <div data-role="navbar">
+                    <ul>
+                      <li><a href ="#page1" class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-circle">Vis </a></li>
+                      <li><a href ="#page2" class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-twitter">Tweets</a></li>
+                      <li><a href = "#page3" class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-hashtag"> #</a></li>
+                      <li><a href = "#page4" class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-graph"> Graph</a></li>
+
+                    </ul>
+                  </div>
+                </div>
+
+        </div><!-- /page -->
+
+<!--************************************************   PAGE 3  **************************************************************-->
+<div data-role="page" id="page3" data-theme="b">
+
+    <!-- <div data-role="header" data-theme="b">
+        <h1>Data Evolution</h1>
+        <a href="#" class="ui-btn ui-icon-delete ui-btn-icon-notext ui-corner-all" data-theme="b">No text</a>
+
+    </div> -->
+    <input type="text" name="text-1" id="text-1" value="" data-theme="b" placeholder="Keyword">
+
+    <div role="main" class="ui-content" data-theme="b">
+
+      <form>
+          <input type="range" name="slider-2" id="slider-2" min="0" max="10" step="0.1" value="5">
+      </form>
+
+      <!-- <canvas nx="slider" height="400" width="20"></canvas> -->
+
+    </div><!-- /content -->
+
+          <div data-role = "footer" style = "overflow:hidder">
+            <div data-role="navbar">
+              <ul>
+                <li><a href ="#page1" class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-circle">Vis </a></li>
+                <li><a href ="#page2" class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-twitter">Tweets</a></li>
+                <li><a href = "#page3" class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-hashtag"> #</a></li>
+                <li><a href = "#page4" class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-graph"> Graph</a></li>
+
+              </ul>
+            </div>
+          </div>
+
+  </div><!-- /page -->
+
+  <!--*********************************************    PAGE 4    *****************************************************************-->
+  <div data-role="page" id="page4" data-theme="b">
+
+
+      <input type="text" name="text-1" id="text-1" value="" data-theme="b" placeholder="Keyword">
+
+      <div role="main" class="ui-content" data-theme="b">
+
+        <form>
+
+            <input type="range" name="slider-3" id="slider-3" min="0" max="10" step="0.1" value="5">
+            <label for="slider-3">Zoom:</label>
+
+            <input type="range" name="slider-4" id="slider-4" min="0" max="10" step="0.1" value="5">
+
+        </form>
+
+
+
+      </div><!-- /content -->
+
+            <div data-role = "footer" style = "overflow:hidder">
+              <div data-role="navbar">
+                <ul>
+                  <li><a href ="#page1" class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-circle">Vis </a></li>
+                  <li><a href ="#page2" class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-twitter">Tweets</a></li>
+                  <li><a href = "#page3" class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-hashtag"> #</a></li>
+                  <li><a href = "#page4" class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-graph"> Graph</a></li>
+
+                </ul>
+              </div>
+            </div>
+
+    </div><!-- /page -->
+
+</body>
+</html>
