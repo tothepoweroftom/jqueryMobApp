@@ -3,7 +3,7 @@
 <head>
     <title>My Page</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="libraries/MobgenTheme.min.css" />
+    <link rel="stylesheet" href="libraries/MobgenTheme.css" />
   <link rel="stylesheet" href="libraries/jquery.mobile.icons.min.css" />
     <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile.structure-1.4.5.min.css" />
     <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
@@ -35,17 +35,28 @@ body { font-family: Futura, san-serif; }
 
 #controls {
 position: absolute;
-margin: 0% 5%;
+top: 100px;
+left:7%;
+/*margin: 0% 5%;*/
+z-index: 4;
 
 }
 
 #position {
 position: absolute;
-margin: 0% 5%;
-border-style: solid;
-border-width: 0.3px;
+left: 50%;
+top: 33%;
+-ms-transform: translate(-25%, -12.5%); /* IE 9 */
+-webkit-transform: translate(-25%, -12.5%); /* Safari */
+transform: translate(-50%, -25%);
+
+z-index: 5;
 }
 
+#menubar{
+
+
+}
 #refresh {
 
   position: absolute;
@@ -122,8 +133,8 @@ width: 100px !important;
 
 
                   $(".dial").knob({
-                    'height': 300,
-                    'width' : 300,
+                    'height': 350,
+                    'width' : 350,
                     'change' : function (v) { console.log(v) }
 
 
@@ -132,9 +143,10 @@ width: 100px !important;
 
               });
           </script>
+        </div>  <!-- controls -->
 
           <div id="position">
-          <canvas nx="position" height="200" width="300"></canvas>
+          <canvas nx="position" height="200" width="200"></canvas>
             <script>
               nx.onload = function() {
 
@@ -144,7 +156,6 @@ width: 100px !important;
               }
             </script>
           </div> <!-- /position -->
-        </div>  <!-- /grid-a -->
 
 
 
@@ -170,15 +181,20 @@ width: 100px !important;
 
 
               <div data-role = "footer" style = "overflow:hidder">
-                <div data-role="navbar">
-                  <ul>
-                    <li><a href ="#page1" class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-circle">Vis </a></li>
-                    <li><a href ="#page2" class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-twitter">Tweets</a></li>
-                    <li><a href = "#page3" class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-hashtag"> #</a></li>
-                    <li><a href = "#page4" class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-graph"> Graph</a></li>
+                <!-- <div data-role="navbar"> -->
+                  <!-- <ul> -->
+                  <div id="menubar">
+                    <button href="#page1" class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-circle ui-btn-icon-notext"></button>
+                    <button href="#page2" class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-twitter ui-btn-icon-notext"></button>
+                    <button href="#page3" class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-hashtag ui-btn-icon-notext"></button>
+                    <button href="#page4" class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-graph ui-btn-icon-notext"></button>
 
-                  </ul>
-                </div>
+                    <!-- <a href ="#page2" class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-twitter">Tweets</a>
+                    <a href = "#page3" class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-hashtag"> #</a>
+                    <a href = "#page4" class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-graph"> Graph</a> -->
+
+                  <!-- </ul> -->
+                 </div>
               </div>
 
       </div><!-- /page -->
