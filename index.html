@@ -3,15 +3,21 @@
 <head>
     <title>My Page</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="libraries/nexusUI.js"></script>
     <link rel="stylesheet" href="libraries/MobgenTheme.css" />
   <link rel="stylesheet" href="libraries/jquery.mobile.icons.min.css" />
+  <link rel="stylesheet" href="style.css" />
+
     <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile.structure-1.4.5.min.css" />
     <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
     <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
     <script src="libraries/jquery.knob.min.js"></script>
-    <script src="libraries/nexusUI.js"></script>
+    <script type="text/javascript" src="libraries/sb-1.4.1.js"></script>
+
     <script src="libraries/p5.js"></script>
     <script src="libraries/p5.dom.js"></script>
+    <script src="app.js"></script>
+
 
 
       <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -30,88 +36,6 @@
 
 <style>
 
-body { font-family: Futura, san-serif; }
-#text-1 { font-family: Futura, san-serif; text-align:  center;}
-
-#controls {
-position: absolute;
-top: 100px;
-left:7%;
-/*margin: 0% 5%;*/
-z-index: 4;
-
-}
-
-#position {
-position: absolute;
-left: 50%;
-top: 33%;
--ms-transform: translate(-25%, -12.5%); /* IE 9 */
--webkit-transform: translate(-25%, -12.5%); /* Safari */
-transform: translate(-50%, -25%);
-
-z-index: 5;
-}
-
-#menubar{
-
-
-}
-#refresh {
-
-  position: absolute;
-  right: 20px;
-  bottom: 50px;
-
-
-}
-
-#switch {
-
-  position: absolute;
-  left: 20px;
-  bottom: 50px;
-
-}
-
-#vertical {
-    -webkit-transform: rotate(90deg);
-    -moz-transform: rotate(90deg);
-    -o-transform: rotate(90deg);
-    -ms-transform: rotate(90deg);
-    transform: rotate(90deg);
-}
-
-#verticalslider {
-  position: absolute;
-  top: 50%;
-  width: 90%;
-
-}
-
-/*[data-role=width]{width: 50% !important; position:relative !important;}*/
-
-[data-role=page]{height: 100% !important; position:relative !important;}
-[data-role=footer]{bottom:0; position:absolute !important; top: auto !important; width:100%;}
-
-.dial{
-
-width: 100px !important;
-}
-
-.ui-icon-circle:after {
-	background-image: url("./assets/icons/home.svg");
-
-}
-.ui-icon-twitter:after {
-	background-image: url("./assets/icons/twitter.svg");
-}
-.ui-icon-graph:after {
-	background-image: url("./assets/icons/graph.svg");
-}
-.ui-icon-hashtag:after {
-	background-image: url("./assets/icons/hashtag.svg");
-}
 </style>
 </head>
 <body>
@@ -122,12 +46,26 @@ width: 100px !important;
 
 
          <div role="main" class="ui-content" data-theme="b">
+
+
           <input type="text" name="text-1" id="text-1" value="" data-theme="b" placeholder="Keyword">
+
+          <!-- <form>
+          <div class="ui-field-contain">
+              <label for="select-native-2">Mini sized:</label>
+              <select name="select-native-2" id="select-native-2" data-mini="true">
+                  <option value="1">Technology</option>
+                  <option value="2">The 2nd Option</option>
+                  <option value="3">The 3rd Option</option>
+                  <option value="4">The 4th Option</option>
+              </select>
+          </div>
+          </form> -->
           <!-- /content -->
 
           <div id="controls">
           <!-- Position Controls  -->
-          <input type="text" value="75" class="dial" data-bgColor="white" data-cursor=true data-thickness=.05 data-fgColor="#222222" data-left="100">
+          <input type="text" value="75" class="dial" data-bgColor="#222222" data-cursor=true data-thickness=.02 data-fgColor="#ffffff" data-left="100">
           <script>
               $(function() {
 
@@ -148,26 +86,37 @@ width: 100px !important;
           <div id="position">
           <canvas nx="position" height="200" width="200"></canvas>
             <script>
-              nx.onload = function() {
-
-                nx.colorize("#ffffff");
-                nx.colorize("fill", "#000000");
-                nx.colorize("border", "#ffffff");
-              }
+  
             </script>
           </div> <!-- /position -->
 
 
 
           <div id="switch">
-            <select name="flip-2" id="flip-2" data-role="flipswitch" data-theme = "b">
+            <select name="flip-2" id="flip" data-role="flipswitch" onchange="switchFlipped()" data-theme = "b">
               <option value="off"></option>
               <option value="on"></option>
             </select>
+
+            <script>
+                function switchFlipped(){
+                  console.log($('#flip').val());
+
+                }
+          </script>
           </div>
 
+
+
           <div data-role="ui-content" id="refresh">
-          <button class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-back ui-btn-icon-notext"></button>
+          <button class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-back ui-btn-icon-notext" onclick="refreshPressed()" ontouch="refreshPressed()"></button>
+
+          <script>
+                function refreshPressed(){
+
+                  console.log("Refreshed");
+                }
+          </script>
         </div>
 
 
@@ -180,14 +129,14 @@ width: 100px !important;
 
 
 
-              <div data-role = "footer" style = "overflow:hidder">
+              <div data-role = "footer" style = "overflow:hidden">
                 <!-- <div data-role="navbar"> -->
                   <!-- <ul> -->
                   <div id="menubar">
-                    <button href="#page1" class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-circle ui-btn-icon-notext"></button>
-                    <button href="#page2" class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-twitter ui-btn-icon-notext"></button>
-                    <button href="#page3" class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-hashtag ui-btn-icon-notext"></button>
-                    <button href="#page4" class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-graph ui-btn-icon-notext"></button>
+                    <a href="#page1"><button class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-circle-orange ui-btn-icon-notext"></button></a>
+                    <a href="#page2"><button class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-twitter ui-btn-icon-notext"></button></a>
+                    <a href="#page3"><button class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-hashtag ui-btn-icon-notext"></button></a>
+                    <a href="#page4"><button class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-graph ui-btn-icon-notext"></button></a>
 
                     <!-- <a href ="#page2" class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-twitter">Tweets</a>
                     <a href = "#page3" class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-hashtag"> #</a>
@@ -196,6 +145,7 @@ width: 100px !important;
                   <!-- </ul> -->
                  </div>
               </div>
+            </div>
 
       </div><!-- /page -->
 
@@ -211,10 +161,19 @@ width: 100px !important;
           <input type="text" name="text-1" id="text-1" value="" data-theme="b" placeholder="Keyword">
 
           <div role="main" class="ui-content" data-theme="b">
-            <div id="verticalslider"
-            <form>
-                <input type="range" name="slider-1" id="vertical" min="0" max="10" step="0.1" value="5">
+            <div id="verticalslider">
+            <form class="full-width-slider">
+              <label for="slider-1" class="ui-hidden-accessible">Slider:</label>
+
+                <input type="range" name="slider-1" id="vertical" class="tweetSlider" onchange="slider1Changed()", min="0" max="10" step="0.1" value="5">
                 <!-- <canvas nx="slider" height="350" width="20"></canvas> -->
+                <script>
+              // var slider =  .slider();
+              function slider1Changed(){
+                console.log($('.tweetSlider').val());
+
+              }
+                </script>
 
             </form>
           </div>
@@ -222,18 +181,23 @@ width: 100px !important;
 
           </div><!-- /content -->
 
-                <div data-role = "footer" style = "overflow:hidder">
-                  <div data-role="navbar">
-                    <ul>
-                      <li><a href ="#page1" class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-circle">Vis </a></li>
-                      <li><a href ="#page2" class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-twitter">Tweets</a></li>
-                      <li><a href = "#page3" class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-hashtag"> #</a></li>
-                      <li><a href = "#page4" class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-graph"> Graph</a></li>
 
-                    </ul>
-                  </div>
-                </div>
+                        <div data-role = "footer" style = "overflow:hidden">
+                          <!-- <div data-role="navbar"> -->
+                            <!-- <ul> -->
+                            <div id="menubar">
+                              <a href="#page1"><button class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-circle ui-btn-icon-notext"></button></a>
+                              <a href="#page2"><button class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-twitter-orange ui-btn-icon-notext"></button></a>
+                              <a href="#page3"><button class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-hashtag ui-btn-icon-notext"></button></a>
+                              <a href="#page4"><button class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-graph ui-btn-icon-notext"></button></a>
 
+                              <!-- <a href ="#page2" class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-twitter">Tweets</a>
+                              <a href = "#page3" class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-hashtag"> #</a>
+                              <a href = "#page4" class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-graph"> Graph</a> -->
+
+                            <!-- </ul> -->
+                           </div>
+                        </div>
         </div><!-- /page -->
 
 <!--************************************************   PAGE 3  **************************************************************-->
@@ -247,26 +211,43 @@ width: 100px !important;
     <input type="text" name="text-1" id="text-1" value="" data-theme="b" placeholder="Keyword">
 
     <div role="main" class="ui-content" data-theme="b">
+      <div id="verticalslider">
+      <form class="full-width-slider">
+        <label for="slider-2" class="ui-hidden-accessible">Slider:</label>
 
-      <form>
-          <input type="range" name="slider-2" id="slider-2" min="0" max="10" step="0.1" value="5">
+          <input type="range" onchange="slider2Changed()" name="slider-2" id="slider-2" min="0" max="10" step="0.1" value="5" overflow="hidden">
+
       </form>
+    </div>
+      <script>
+    // var slider =  .slider();
+    function slider2Changed(){
+      console.log($('#slider-2').val());
+
+    }
+      </script>
 
       <!-- <canvas nx="slider" height="400" width="20"></canvas> -->
 
     </div><!-- /content -->
 
-          <div data-role = "footer" style = "overflow:hidder">
-            <div data-role="navbar">
-              <ul>
-                <li><a href ="#page1" class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-circle">Vis </a></li>
-                <li><a href ="#page2" class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-twitter">Tweets</a></li>
-                <li><a href = "#page3" class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-hashtag"> #</a></li>
-                <li><a href = "#page4" class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-graph"> Graph</a></li>
+                  <div data-role = "footer" style = "overflow:hidden">
+                    <!-- <div data-role="navbar"> -->
+                      <!-- <ul> -->
+                      <div id="menubar">
+                        <a href="#page1"><button class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-circle ui-btn-icon-notext"></button></a>
+                        <a href="#page2"><button class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-twitter ui-btn-icon-notext"></button></a>
+                        <a href="#page3"><button class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-hashtag-orange ui-btn-icon-notext"></button></a>
+                        <a href="#page4"><button class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-graph ui-btn-icon-notext"></button></a>
 
-              </ul>
-            </div>
-          </div>
+                        <!-- <a href ="#page2" class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-twitter">Tweets</a>
+                        <a href = "#page3" class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-hashtag"> #</a>
+                        <a href = "#page4" class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-graph"> Graph</a> -->
+
+                      <!-- </ul> -->
+                     </div>
+                  </div>
+                </div>
 
   </div><!-- /page -->
 
@@ -277,31 +258,51 @@ width: 100px !important;
       <input type="text" name="text-1" id="text-1" value="" data-theme="b" placeholder="Keyword">
 
       <div role="main" class="ui-content" data-theme="b">
+        <div id="verticalslider">
+        <form class="full-width-slider">
+          <label for="slider-12" class="ui-hidden-accessible">Slider:</label>
 
-        <form>
-
-            <input type="range" name="slider-3" id="slider-3" min="0" max="10" step="0.1" value="5">
+            <input type="range" name="slider-3" id="slider-3" onchange="slider3Changed()" min="0" max="10" step="0.1" value="5">
             <label for="slider-3">Zoom:</label>
 
-            <input type="range" name="slider-4" id="slider-4" min="0" max="10" step="0.1" value="5">
+            <input type="range" name="slider-4" id="slider-4" onchange="slider4Changed()" min="0" max="10" step="0.1" value="5">
 
         </form>
+      </div>
+        <script>
+      // var slider =  .slider();
+      function slider3Changed(){
+        console.log($('#slider-3').val());
 
+      }
+
+      function slider4Changed(){
+        console.log($('#slider-4').val());
+
+      }
+        </script>
 
 
       </div><!-- /content -->
 
-            <div data-role = "footer" style = "overflow:hidder">
-              <div data-role="navbar">
-                <ul>
-                  <li><a href ="#page1" class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-circle">Vis </a></li>
-                  <li><a href ="#page2" class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-twitter">Tweets</a></li>
-                  <li><a href = "#page3" class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-hashtag"> #</a></li>
-                  <li><a href = "#page4" class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-graph"> Graph</a></li>
 
-                </ul>
-              </div>
-            </div>
+                    <div data-role = "footer" style = "overflow:hidden">
+                      <!-- <div data-role="navbar"> -->
+                        <!-- <ul> -->
+                        <div id="menubar">
+                          <a href="#page1"><button class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-circle ui-btn-icon-notext"></button></a>
+                          <a href="#page2"><button class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-twitter ui-btn-icon-notext"></button></a>
+                          <a href="#page3"><button class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-hashtag ui-btn-icon-notext"></button></a>
+                          <a href="#page4"><button class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-graph-orange ui-btn-icon-notext"></button></a>
+
+                          <!-- <a href ="#page2" class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-twitter">Tweets</a>
+                          <a href = "#page3" class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-hashtag"> #</a>
+                          <a href = "#page4" class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-graph"> Graph</a> -->
+
+                        <!-- </ul> -->
+                       </div>
+                    </div>
+                  </div>
 
     </div><!-- /page -->
 

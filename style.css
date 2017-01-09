@@ -1,112 +1,128 @@
-#myContainer{
 
-    position: absolute;
-    width: 95vw;
-    height: 95vw;
-    z-index: 10;
-    top: 50%;
-    left: 50%;
-    margin: -47vw 0 0 -47vw;
-    background: black;
+body { font-family: Futura, san-serif; }
+#text-1 { font-family: Futura, san-serif; text-align:  center;     font-size: 150%;}
 
-}
-
-#bottomContainer{
-
-    position: absolute;
-    /*width: 100vw;*/
-    height: 8vh;
-    z-index: 10;
-    width: 100%;
-    text-align: center;
-    position: absolute;
-    bottom: 0px;
-    left: 0;
-    right: 0;
-    background: black;
+#controls {
+position: absolute;
+top: 100px;
+left:7%;
+/*margin: 0% 5%;*/
+z-index: 4;
 
 }
 
-#innerSelector {
+.home {
+border: 10px;
+}
+#position {
+position: absolute;
+left: 50%;
+top: 33%;
+-ms-transform: translate(-25%, -12.5%); /* IE 9 */
+-webkit-transform: translate(-25%, -12.5%); /* Safari */
+transform: translate(-50%, -25%);
+
+z-index: 5;
+}
+
+
+#menubar{
+position: relative;
+left: 25% !important;
+
+}
+#refresh {
 
   position: absolute;
-  /*background: blue;*/
+  right: 20px;
+  bottom: 80px;
+
+
+}
+
+#switch {
+
+  position: absolute;
+  left: 20px;
+  bottom: 100px;
+
+}
+
+#vertical {
+    -webkit-transform: rotate(90deg);
+    -moz-transform: rotate(90deg);
+    -o-transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+    transform: rotate(90deg);
+}
+
+#verticalslider {
+  position: absolute;
   top: 50%;
-  left: 50%;
-  z-index: 11;
-  width: 50vw;
-  height: 50vw;
-  margin: -25% 0 0 -25vw;
-
-
-
-}
-.round {
-    display:block;
-    width:50px;
-    height:50px;
-    line-height:50px;
-    border: 2px solid #FFA500;
-    border-radius: 50%;
-    color:#333;
-    text-align:center;
-    text-decoration:none;
-    background: #222;
-    box-shadow: 0 0 3px gray;
-    font-size:20px;
-    font-weight:bold;
-    z-index: 20;
-}
-
-.black {
-
-  height:50px;
-  color:#fff;
-  background-color: #000;
-  border-color: #111;
-  border-width: 1px;
-  font-family: Futura;
-  font-size: 20px;
+  width: 90%;
 
 }
 
-.js-switch {
+/*[data-role=width]{width: 50% !important; position:relative !important;}*/
+
+[data-role=page]{height: 100% !important; position:relative !important;}
+[data-role=footer]{bottom:0; position:absolute !important; top: auto !important; width:100%; height: 70px !important;}
+[data-role=flipswitch]{height: 20px !important;width: : 20px !important;}
+
+.dial{
+
+width: 100px !important;
+}
+
+.ui-icon-circle:after {
+	background-image: url("./assets/navbaricons/DataEvolution_tabbuttons_home_w.svg");
 
 
 }
+.ui-icon-circle-orange:after {
+	background-image: url("./assets/navbaricons/DataEvolution_tabbuttons_home_b.svg");
+  background-color: white;
 
-.refresh{
-  position: absolute;
-  left: 80%;
-  z-index: 15;
+}
+.ui-icon-twitter:after {
+	background-image: url("./assets/navbaricons/DataEvolution_tabbuttons_twitter_w.svg");
+}
+.ui-icon-twitter-orange:after {
+	background-image: url("./assets/navbaricons/DataEvolution_tabbuttons_twitter_b.svg");
+  background-color: white;
 
+}
+.ui-icon-graph:after {
+	background-image: url("./assets/navbaricons/DataEvolution_tabbuttons_graph_w.svg");
+
+}
+.ui-icon-graph-orange:after {
+	background-image: url("./assets/navbaricons/DataEvolution_tabbuttons_graph_b.svg");
+  background-color: white;
+
+}
+.ui-icon-hashtag:after {
+	background-image: url("./assets/navbaricons/DataEvolution_tabbuttons_hash_w.svg");
+
+}
+.ui-icon-hashtag-orange:after {
+	background-image: url("./assets/navbaricons/DataEvolution_tabbuttons_hash_b.svg");
+  background-color: white;
 
 }
 
-.btn {
-  background: #000000;
-  background-image: -webkit-linear-gradient(top, #000000, #000000);
-  background-image: -moz-linear-gradient(top, #000000, #000000);
-  background-image: -ms-linear-gradient(top, #000000, #000000);
-  background-image: -o-linear-gradient(top, #000000, #000000);
-  background-image: linear-gradient(to bottom, #000000, #000000);
-  -webkit-border-radius: 28;
-  -moz-border-radius: 28;
-  border-radius: 28px;
-  font-family: Arial;
-  color: #ffffff;
-  font-size: 20px;
-  padding: 10px 20px 10px 20px;
-  border: solid #ffb700 5px;
-  text-decoration: none;
+.ui-btn-icon-notext {
+  width:50px !important;
+  height: 50px !important;
 }
 
-.btn:focus {
-  background: #474747;
-  background-image: -webkit-linear-gradient(top, #474747, #474747);
-  background-image: -moz-linear-gradient(top, #474747, #474747);
-  background-image: -ms-linear-gradient(top, #474747, #474747);
-  background-image: -o-linear-gradient(top, #474747, #474747);
-  background-image: linear-gradient(to bottom, #474747, #474747);
-  text-decoration: none;
+/* Hide the number input */
+
+
+.full-width-slider input {
+  display: none;
+}
+
+.full-width-slider .ui-slider-track {
+  margin-left: 15px;
 }
