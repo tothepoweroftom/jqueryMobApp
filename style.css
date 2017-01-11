@@ -5,7 +5,6 @@ body { font-family: Futura, san-serif; }
 #controls {
 position: absolute;
 top: 100px;
-left:7%;
 /*margin: 0% 5%;*/
 z-index: 4;
 
@@ -28,7 +27,7 @@ z-index: 5;
 
 #menubar{
 position: relative;
-left: 25% !important;
+left: 23% !important;
 
 }
 #refresh {

@@ -48,7 +48,35 @@
          <div role="main" class="ui-content" data-theme="b">
 
 
-          <input type="text" name="text-1" id="text-1" value="" data-theme="b" placeholder="Keyword">
+
+           <!-- <form>
+             <div class = "ui-field-contain">
+               <select name="select-native-2" id="select-native-2" data-mini="true">
+                 <option value="Technology">Technology</option>
+                 <option value="Technology">Innovation</option>
+                 <option value="Technology">Energy</option>
+                 <option value="Technology">Chemical</option>
+                 <option value="Technology">Accenture</option>
+                 <option value="Technology">Mobility</option>
+
+
+               </select>
+             </div>
+           </form> -->
+
+<!--
+           <a href="#popupMenu" data-rel="popup" data-transition="sliderup" class="ui-btn ui-corner-all ui-btn-inline ui-icon-menu ui-btn-icon-left"> Keywords</a>
+           <div data-role="popup" id="popupMenu" data-theme="b">
+             <ul data-role="listview" data-inset="true" style="min-width:210px;">
+               <li data-role="list-divider">Choose a keyword</li>
+               <li><a href="#">Technology</a></li>
+               <li><a href="#">Innovation</a></li>
+               <li><a href="#">Accenture</a></li>
+               <li><a href="#">Mobility</a></li>
+          </ul>
+        </div> -->
+
+          <input type="text" name="text-1" id="text-1" value="" onchange="textInput()" data-theme="b" placeholder="Keyword">
 
           <!-- <form>
           <div class="ui-field-contain">
