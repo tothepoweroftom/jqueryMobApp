@@ -67,26 +67,38 @@
           <!-- Position Controls  -->
           <input type="text" value="75" class="dial" data-bgColor="#222222" data-cursor=true data-thickness=.02 data-fgColor="#ffffff" data-left="100">
           <script>
-              $(function() {
-
-
-                  $(".dial").knob({
-                    'height': 350,
-                    'width' : 350,
-                    'change' : function (v) { console.log(v) }
-
-
-                  });
-                  // $(".dial").css("background-color": "#ffe");
-
-              });
+              // $(function() {
+              //
+              //
+              //     $(".dial").knob({
+              //       'height': 350,
+              //       'width' : 350,
+              //       'change' : function (v) { console.log(v) }
+              //
+              //
+              //     });
+              //     // $(".dial").css("background-color": "#ffe");
+              //
+              // });
           </script>
         </div>  <!-- controls -->
 
           <div id="position">
           <canvas nx="position" height="200" width="200"></canvas>
             <script>
-  
+              // nx.onload = function() {
+              //
+              //   nx.colorize("#ffffff");
+              //   nx.colorize("fill", "#000000");
+              //   nx.colorize("border", "#ffffff");
+              //
+              //   position1.nodeSize = 8;
+              //   position1.draw();
+              //
+              //   position1.on('*', function(data) {
+              //     console.log("data-x: " + data.x + " data-y: " + data.y);
+              //   })
+              // }
             </script>
           </div> <!-- /position -->
 
@@ -99,10 +111,10 @@
             </select>
 
             <script>
-                function switchFlipped(){
-                  console.log($('#flip').val());
-
-                }
+                // function switchFlipped(){
+                //   console.log($('#flip').val());
+                //
+                // }
           </script>
           </div>
 
@@ -112,10 +124,10 @@
           <button class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-back ui-btn-icon-notext" onclick="refreshPressed()" ontouch="refreshPressed()"></button>
 
           <script>
-                function refreshPressed(){
-
-                  console.log("Refreshed");
-                }
+                // function refreshPressed(){
+                //
+                //   console.log("Refreshed");
+                // }
           </script>
         </div>
 
@@ -169,10 +181,10 @@
                 <!-- <canvas nx="slider" height="350" width="20"></canvas> -->
                 <script>
               // var slider =  .slider();
-              function slider1Changed(){
-                console.log($('.tweetSlider').val());
-
-              }
+              // function slider1Changed(){
+              //   console.log($('.tweetSlider').val());
+              //
+              // }
                 </script>
 
             </form>
@@ -221,10 +233,10 @@
     </div>
       <script>
     // var slider =  .slider();
-    function slider2Changed(){
-      console.log($('#slider-2').val());
-
-    }
+    // function slider2Changed(){
+    //   console.log($('#slider-2').val());
+    //
+    // }
       </script>
 
       <!-- <canvas nx="slider" height="400" width="20"></canvas> -->
@@ -270,16 +282,16 @@
         </form>
       </div>
         <script>
-      // var slider =  .slider();
-      function slider3Changed(){
-        console.log($('#slider-3').val());
-
-      }
-
-      function slider4Changed(){
-        console.log($('#slider-4').val());
-
-      }
+      // // var slider =  .slider();
+      // function slider3Changed(){
+      //   console.log($('#slider-3').val());
+      //
+      // }
+      //
+      // function slider4Changed(){
+      //   console.log($('#slider-4').val());
+      //
+      // }
         </script>
 
 
