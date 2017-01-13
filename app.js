@@ -1,7 +1,7 @@
 
 //****************** SPACEBREW ********************
 var sb,
-app_name = "Trend Radar Remote";
+app_name = "Trend Radar Remote_Mac";
 
 
 // Set up SB Variable
