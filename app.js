@@ -60,8 +60,8 @@ nx.onload = function() {
 
   position1.on('*', function(data) {
     console.log("data-x: " + int(data.x*100) + " data-y: " + int(data.y*100));
-    sb.send("XData", "range", String(int(data.x*100)));
-    sb.send("YData", "range", String(int(data.y*100)));
+    sb.send("XData", "range", String(int(data.x*120)));
+    sb.send("YData", "range", String(int(data.y*120)));
 
   })
 }
