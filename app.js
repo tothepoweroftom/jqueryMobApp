@@ -86,7 +86,7 @@ function switchFlipped(){
 // **************** TEXT INPUT *****************
 function textInput() {
 
-console.log($('#text-1').val());
+console.log($('#select-native-2').val());
 sb.send("keyword", "string", String($('#text-1').val()));
 }
 
