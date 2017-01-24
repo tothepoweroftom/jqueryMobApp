@@ -118,7 +118,7 @@
         </div>  <!-- controls -->
 
           <div id="position">
-          <canvas nx="position" height="200" width="200"></canvas>
+          <canvas nx="position" height="200" width="200" ontouchended="positionMouseUp()" onmouseout="positionMouseUp()" ontouchstart="positionMouseStart()" onmousedown="positionMouseStart()"></canvas>
             <script>
               // nx.onload = function() {
               //
@@ -181,8 +181,8 @@
                   <div id="menubar">
                     <a href="#page1"><button class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-circle-orange ui-btn-icon-notext"></button></a>
                     <a href="#page2"><button class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-twitter ui-btn-icon-notext"></button></a>
-                    <a href="#page3"><button class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-hashtag ui-btn-icon-notext"></button></a>
-                    <a href="#page4"><button class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-graph ui-btn-icon-notext"></button></a>
+                    <!-- <a href="#page3"><button class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-hashtag ui-btn-icon-notext"></button></a>
+                    <a href="#page4"><button class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-graph ui-btn-icon-notext"></button></a> -->
 
                     <!-- <a href ="#page2" class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-twitter">Tweets</a>
                     <a href = "#page3" class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-hashtag"> #</a>
@@ -229,7 +229,7 @@
             <form class="full-width-slider">
               <label for="slider-1" class="ui-hidden-accessible">Slider:</label>
 
-                <input type="range" name="slider-1" id="vertical" class="tweetSlider" onchange="slider1Changed()", min="0" max="10" step="0.1" value="5">
+                <input type="range" name="slider-1" id="vertical" class="tweetSlider" onchange="slider1Changed()", min="0" max="10" step="1" value="5">
                 <!-- <canvas nx="slider" height="350" width="20"></canvas> -->
                 <script>
               // var slider =  .slider();
@@ -252,8 +252,8 @@
                             <div id="menubar">
                               <a href="#page1"><button class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-circle ui-btn-icon-notext"></button></a>
                               <a href="#page2"><button class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-twitter-orange ui-btn-icon-notext"></button></a>
-                              <a href="#page3"><button class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-hashtag ui-btn-icon-notext"></button></a>
-                              <a href="#page4"><button class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-graph ui-btn-icon-notext"></button></a>
+                              <!-- <a href="#page3"><button class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-hashtag ui-btn-icon-notext"></button></a>
+                              <a href="#page4"><button class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-graph ui-btn-icon-notext"></button></a> -->
 
                               <!-- <a href ="#page2" class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-twitter">Tweets</a>
                               <a href = "#page3" class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-hashtag"> #</a>
@@ -265,14 +265,8 @@
         </div><!-- /page -->
 
 <!--************************************************   PAGE 3  **************************************************************-->
-<div data-role="page" id="page3" data-theme="b">
-
-    <!-- <div data-role="header" data-theme="b">
-        <h1>Data Evolution</h1>
-        <a href="#" class="ui-btn ui-icon-delete ui-btn-icon-notext ui-corner-all" data-theme="b">No text</a>
-
-    </div> -->
-    <form>
+<!-- <div data-role="page" id="page3" data-theme="b"> -->
+    <!-- <form>
     <div class="ui-field-contain">
         <select name="select-native-2" id="select-native-2" data-mini="true" onchange="textInput()">
             <option value="Technology">Technology</option>
@@ -288,10 +282,10 @@
             <option value="Bunnies">Special Option</option>
         </select>
     </div>
-    </form>
+    </form> -->
     <!-- <input type="text" name="text-1" id="text-1" value="" data-theme="b" placeholder="Keyword"> -->
 
-    <div role="main" class="ui-content" data-theme="b">
+    <!-- <div role="main" class="ui-content" data-theme="b">
       <div id="verticalslider">
       <form class="full-width-slider">
         <label for="slider-2" class="ui-hidden-accessible">Slider:</label>
@@ -306,38 +300,35 @@
     //   console.log($('#slider-2').val());
     //
     // }
-      </script>
+      </script> -->
 
       <!-- <canvas nx="slider" height="400" width="20"></canvas> -->
 
-    </div><!-- /content -->
+    <!-- </div> -->
 
-                  <div data-role = "footer" style = "overflow:hidden">
-                    <!-- <div data-role="navbar"> -->
-                      <!-- <ul> -->
+                  <!-- <div data-role = "footer" style = "overflow:hidden">
                       <div id="menubar">
                         <a href="#page1"><button class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-circle ui-btn-icon-notext"></button></a>
                         <a href="#page2"><button class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-twitter ui-btn-icon-notext"></button></a>
                         <a href="#page3"><button class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-hashtag-orange ui-btn-icon-notext"></button></a>
                         <a href="#page4"><button class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-graph ui-btn-icon-notext"></button></a>
 
-                        <!-- <a href ="#page2" class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-twitter">Tweets</a>
+                        <a href ="#page2" class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-twitter">Tweets</a>
                         <a href = "#page3" class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-hashtag"> #</a>
-                        <a href = "#page4" class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-graph"> Graph</a> -->
+                        <a href = "#page4" class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-graph"> Graph</a>
 
-                      <!-- </ul> -->
                      </div>
                   </div>
-                </div>
+                </div> -->
 
-  </div><!-- /page -->
+  <!-- </div> -->
 
   <!--*********************************************    PAGE 4    *****************************************************************-->
-  <div data-role="page" id="page4" data-theme="b">
+  <!-- <div data-role="page" id="page4" data-theme="b"> -->
 
 
       <!-- <input type="text" name="text-1" id="text-1" value="" data-theme="b" placeholder="Keyword"> -->
-      <form>
+      <!-- <form>
       <div class="ui-field-contain">
           <select name="select-native-2" id="select-native-2" data-mini="true" onchange="textInput()">
               <option value="Technology">Technology</option>
@@ -353,9 +344,9 @@
               <option value="Bunnies">Special Option</option>
           </select>
       </div>
-      </form>
+      </form> -->
 
-      <div role="main" class="ui-content" data-theme="b">
+      <!-- <div role="main" class="ui-content" data-theme="b">
         <div id="verticalslider">
         <form class="full-width-slider">
           <label for="slider-12" class="ui-hidden-accessible">Slider:</label>
@@ -366,8 +357,8 @@
             <input type="range" name="slider-4" id="slider-4" onchange="slider4Changed()" min="0" max="10" step="0.1" value="5">
 
         </form>
-      </div>
-        <script>
+      </div> -->
+        <!-- <script>
       // // var slider =  .slider();
       // function slider3Changed(){
       //   console.log($('#slider-3').val());
@@ -378,31 +369,31 @@
       //   console.log($('#slider-4').val());
       //
       // }
-        </script>
+        </script> -->
 
 
-      </div><!-- /content -->
+      <!-- </div> -->
 
 
-                    <div data-role = "footer" style = "overflow:hidden">
+                    <!-- <div data-role = "footer" style = "overflow:hidden"> -->
                       <!-- <div data-role="navbar"> -->
                         <!-- <ul> -->
-                        <div id="menubar">
-                          <a href="#page1"><button class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-circle ui-btn-icon-notext"></button></a>
+                        <!-- <div id="menubar"> -->
+                          <!-- <a href="#page1"><button class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-circle ui-btn-icon-notext"></button></a>
                           <a href="#page2"><button class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-twitter ui-btn-icon-notext"></button></a>
                           <a href="#page3"><button class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-hashtag ui-btn-icon-notext"></button></a>
-                          <a href="#page4"><button class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-graph-orange ui-btn-icon-notext"></button></a>
+                          <a href="#page4"><button class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-graph-orange ui-btn-icon-notext"></button></a> -->
 
                           <!-- <a href ="#page2" class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-twitter">Tweets</a>
                           <a href = "#page3" class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-hashtag"> #</a>
                           <a href = "#page4" class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-graph"> Graph</a> -->
 
                         <!-- </ul> -->
-                       </div>
-                    </div>
-                  </div>
+                       <!-- </div> -->
+                    <!-- </div> -->
+                  <!-- </div> -->
 
-    </div><!-- /page -->
+    <!-- </div> -->
 
 </body>
 </html>

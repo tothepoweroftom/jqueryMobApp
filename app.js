@@ -6,11 +6,16 @@ app_name = "Trend Radar Remote_Mac";
 
 // Set up SB Variable
 sb = new Spacebrew.Client("trendradar.mobgendev.com", app_name, "Remote controls for data visualization", {reconnect: true} );
+ // sb = new Spacebrew.Client("localhost", app_name, "Remote controls for data visualization", {reconnect: true} );
+
 
 // add publishers and subscribers
 sb.addPublish("circularSlider", "range", "0" );
+sb.addPublish("circularSliderActive", "boolean", "false" );
+
 sb.addPublish("XData", "range", "0" );
 sb.addPublish("YData", "range", "0" );
+sb.addPublish("XYActive", "boolean", "false");
 sb.addPublish("refreshButton", "boolean", "false" );
 sb.addPublish("keyword", "string");
 sb.addPublish("toggle", "boolean", "false");
@@ -36,6 +41,17 @@ function setup(){
 
       // console.log(int(v))
       sb.send( "circularSlider", "range", String(int(v)));
+      sb.send( "circularSliderActive", "boolean", "true");
+
+      console.log("circularSliderActive", "true");
+
+
+
+    },
+
+    'release': function(v) {
+      sb.send( "circularSliderActive", "boolean", "false");
+      console.log("circularSliderActive", "false");
 
 
     }
@@ -45,6 +61,7 @@ function setup(){
 
   var controls = select('#controls');
   controls.position((windowWidth)/2 - (windowWidth-40)/2, 100 );
+
 
 
 }
@@ -62,8 +79,17 @@ nx.onload = function() {
     console.log("data-x: " + int(data.x*100) + " data-y: " + int(data.y*100));
     sb.send("XData", "range", String(int(data.x*120)));
     sb.send("YData", "range", String(int(data.y*120)));
+    // sb.send("XYActive", "boolean", "true");
 
-  })
+  });
+
+  // position1.on('release', function(data) {
+  //
+  //   sb.send("XYActive", "boolean", "false");
+  //   console.log("XYActive False");
+  //
+  // })
+
 }
 
 
@@ -81,6 +107,18 @@ function switchFlipped(){
 
   }
 
+}
+
+function positionMouseUp(){
+  sb.send("XYActive", "boolean", "false");
+
+  console.log("Nexus mouse up");
+}
+
+function positionMouseStart(){
+  sb.send("XYActive", "boolean", "true");
+
+  console.log("Nexus mouse down");
 }
 
 // **************** TEXT INPUT *****************
